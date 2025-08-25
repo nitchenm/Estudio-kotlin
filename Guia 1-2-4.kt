@@ -2,7 +2,7 @@
 
 fun main() {
 	
-    val product1 = mapOf("Nombre" to "Audifonos","Precio" to 10000.0, "Categoria" to "Tecnologia")
+    	val product1 = mapOf("Nombre" to "Audifonos","Precio" to 10000.0, "Categoria" to "Tecnologia")
     val product2 = mapOf("Nombre" to "Procesador i5-9400f", "Precio" to 90000.0, "Categoria" to "Tecnologia")
     val product3 = mapOf("Nombre" to "Ram stick 8 gb" ,"Precio" to 30000.0,"Categoria" to "Tecnologia")
     val product4 = mapOf("Nombre" to "Tarjega grafica RTX4060" ,"Precio" to 350000.0,"Categoria" to "Tecnologia")
@@ -48,6 +48,9 @@ fun main() {
     
     val categoryFilter: (String, List<Map<String,Any>>) -> List<Map<String,Any>> = {category, list -> list.filter{it["Categoria"] == category} }
     
-    print(categoryFilter("Tecnologia", listOfProducts))
+    val allProductsName: (List<Map<String,Any>>) -> List<String> = {list -> list.map{it["Nombre"].toString()}}
+    
+    println(categoryFilter("Tecnologia", listOfProducts))
+    println(allProductsName(listOfProducts))
     
 }
